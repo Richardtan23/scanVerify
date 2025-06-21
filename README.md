@@ -1,5 +1,10 @@
 # ScanVerify – Fake News Detection Chrome Extension
 
+Team:Taste of Fate
+Teams Member:Clive Timothy Haye Ng,Pok Hao Yang,Tan Li Cherk,Boon Keat
+
+
+
 **ScanVerify** is a Chrome extension that helps users detect and flag potentially fake news articles. It integrates domain reputation analysis and a machine learning text classifier to determine the credibility of the content displayed in a web browser.
 
 ---
