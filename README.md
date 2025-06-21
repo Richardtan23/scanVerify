@@ -55,7 +55,7 @@
 ## Getting Started
 
 ### Step 1: Clone this repository to your local machine
-    git clone https://github.com/your-username/ScanVerify
+    git clone https://github.com/Richardtan23/scanVerify.git
     cd ScanVerify
 
 ### Step 2: Start the Backend (FastAPI)
