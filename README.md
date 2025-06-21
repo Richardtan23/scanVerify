@@ -1,7 +1,7 @@
 # ScanVerify – Fake News Detection Chrome Extension
 
-Team:Taste of Fate
-Teams Member:Clive Timothy Haye Ng,Pok Hao Yang,Tan Li Cherk,Boon Keat
+*Team:Taste of Fate
+*Teams Member:Clive Timothy Haye Ng,Pok Hao Yang,Tan Li Cherk,Boon Keat
 
 
 
