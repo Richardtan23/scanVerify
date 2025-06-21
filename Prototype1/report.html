@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>ScanVerify Reports</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background: #f9fafb;
+    }
+    h1 {
+      margin-bottom: 0.5em;
+    }
+    .controls {
+      margin-bottom: 1em;
+    }
+    .controls button {
+      padding: 8px 12px;
+      border: 1px solid #e53e3e;
+      border-radius: 4px;
+      background: #e53e3e;
+      color: #fff;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .controls button:active {
+      background: #c53030;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: #fff;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    th, td {
+      padding: 12px 15px;
+      text-align: left;
+    }
+    th {
+      background: #f2f2f2;
+      font-weight: 600;
+    }
+    tr:nth-child(even) {
+      background: #fafafa;
+    }
+    .badge {
+      display: inline-block;
+      padding: 4px 8px;
+      border-radius: 12px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: #fff;
+    }
+    .badge-pending  { background: #d69e2e; }
+    .badge-reviewed { background: #38a169; }
+    .badge-archived { background: #718096; }
+    .pagination {
+      margin-top: 1em;
+      display: flex;
+      gap: 5px;
+      justify-content: center;
+    }
+    .pagination button {
+      padding: 6px 10px;
+      border: 1px solid #ccc;
+      background: #fff;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+    .pagination button.active {
+      background: #3182ce;
+      color: #fff;
+      border-color: #3182ce;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Reported URLs</h1>
+  <div class="controls">
+    <button id="clearBtn">Clear All Reports</button>
+  </div>
+
+  <table id="reportsTable">
+    <thead>
+      <tr>
+        <th>URL</th>
+        <th>Date Reported</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+
+  <div class="pagination" id="pagination"></div>
+
+  <script src="report.js"></script>
+</body>
+</html>
