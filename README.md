@@ -54,21 +54,17 @@
 
 ## Getting Started
 
-### Step 1: Setup the Backend API
+### Step 1: Clone this repository to your local machine
+    git clone https://github.com/your-username/ScanVerify
+    cd ScanVerify
 
-1. Install dependencies:
-   ```bash
-   pip install fastapi uvicorn scikit-learn textblob nltk joblib
-   
-2. Download the trained models:
-   logistic_model.pkl
-    tfidf_vectorizer.pkl
-
-3. Run the FastAPI server:
-   ```bash
+### Step 2: Start the Backend (FastAPI)
+    pip install -r requirements.txt
     uvicorn main:app --reload
    
-### Step 2: Load the Chrome Extension
+Make sure logistic_model.pkl and tfidf_vectorizer.pkl are in the root backend directory.
+
+### Step 3: Load the Chrome Extension
 1. Open Chrome and go to chrome://extensions/
 
 2. Enable Developer Mode (top right).
