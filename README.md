@@ -52,25 +52,6 @@
 
 ---
 
-## Project Structure
-ScanVerify/
-├── popup.html # Extension popup UI
-├── popup.js # Handles Analyze & Report buttons
-├── content.js # Analyzes page content + shows overlay
-├── report.html # View saved reports
-├── report.js # Script for viewing local reports
-├── style.css # Styling for popup and overlays
-├── manifest.json # Chrome extension settings
-├── backend/
-│ ├── main.py # FastAPI server
-│ ├── domain_checker.py # Checks domain reputation
-│ ├── lr_model.py # Predicts text credibility
-│ ├── tfidf_vectorizer.pkl # Loaded model file
-│ └── logistic_model.pkl # Trained ML model
-
-
----
-
 ## Getting Started
 
 ### Step 1: Setup the Backend API
