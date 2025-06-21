@@ -1,0 +1,8 @@
+fastapi
+uvicorn
+joblib
+nltk
+textblob
+tldextract
+python-whois
+scikit-learn
