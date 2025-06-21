@@ -1,88 +1,111 @@
-# ScanVerify - Chrome Extension for Fake News Detection
+# ScanVerify – Fake News Detection Chrome Extension
 
-**ScanVerify** is a browser extension that helps users detect fake news and misinformation on any webpage. It combines **domain reputation checks** with **AI-powered content analysis** to show how credible an article is — all with a single click.
+**ScanVerify** is a Chrome extension that helps users detect and flag potentially fake news articles. It integrates domain reputation analysis and a machine learning text classifier to determine the credibility of the content displayed in a web browser.
 
 ---
 
-## Key Features
+## Table of Contents
 
- **Domain Checker**  
-- Detects if a webpage comes from a **trusted**, **unknown**, or **suspicious** news source.
+* [Features](#features)
+* [How It Works](#how-it-works)
+* [Installation Guide](#installation-guide)
+* [Usage](#usage)
+* [Backend Setup](#backend-setup)
+* [Dependencies](#dependencies)
+* [Expected Outcomes](#expected-outcomes)
+---
 
- **AI-Powered Text Analysis**  
-- Uses **Natural Language Processing (NLP)** and **Machine Learning** to analyze article content.
+## Features
 
- **Reliability Score**  
-- Shows a percentage-based score indicating how credible the page likely is.
-
- **Report Suspicious Content**  
-- Users can report misleading pages with one click, stored locally for admin review.
+* Domain reputation analysis using a whitelist/blacklist approach.
+* Text-based fake news detection using a logistic regression model.
+* Real-time analysis via Chrome extension interface.
+* Visual reliability scoring via progress bar and textual feedback.
+* Reporting system for users to flag suspicious articles.
+* Local storage of reports for review.
 
 ---
 
 ## How It Works
 
-1. Open any news article in your browser.
-2. Click the **ScanVerify** icon in the Chrome toolbar.
-3. Click **"Analyze"**.
-   - If the website is trusted, you'll get an immediate "Real" result.
-   - If not, the extension reads and sends article text to an API for deeper analysis.
-4. You'll see a **reliability score**, color-coded (Green = Real, Yellow = Medium, Red = Likely Fake).
-5. Optionally, click **"Report"** to save the page info and open Google's official phishing report page.
-6. Click gear icon to check the reported Urls.
+1. When a user opens a news article and clicks the "Analyze" button:
+
+   * The extension checks the current page URL.
+   * If the domain is in a known list (trusted/fake), it returns a quick result.
+   * If unknown, the extension sends the article text to a FastAPI backend.
+   * The backend uses a trained model to analyze the content and return a prediction.
+2. Results are presented in the popup with a reliability score and label (real/fake).
 
 ---
 
-## Tech Stack
+## Installation Guide
 
-### Frontend (Chrome Extension)
-- HTML / CSS / JavaScript
-- Chrome Extension APIs
-- Popup UI (`popup.html`, `popup.js`)
-- Content Script (`content.js`)
-- Local Storage for reports
-- Admin view (`report.html`, `report.js`)
+### Chrome Extension (Frontend)
 
-### Backend (FastAPI)
-- Python 3, FastAPI
-- `uvicorn` server
-- Machine Learning (Logistic Regression)
-- NLP: TextBlob, TF-IDF vectorizer
-- Domain Reputation Checker
+1. Clone the repository:
+
+   ```
+   git clone https://github.com/Richardtan23/scanVerify.git
+   ```
+2. Open Chrome and navigate to `chrome://extensions/`
+3. Enable **Developer mode**
+4. Click **Load Unpacked** and select the extension directory
 
 ---
 
-## Getting Started
+## Backend Setup
 
-### Step 1: Clone this repository to your local machine
-    git clone https://github.com/Richardtan23/scanVerify.git
-    cd ScanVerify
+1. Navigate to the `backend/` folder in the project
+2. Install Python dependencies using:
 
-### Step 2: Start the Backend (FastAPI)
-    pip install -r requirements.txt
-    uvicorn main:app --reload
-   
-Make sure logistic_model.pkl and tfidf_vectorizer.pkl are in the root backend directory.
+   ```
+   pip install -r requirements.txt
+   ```
+3. Start the FastAPI server:
 
-### Step 3: Load the Chrome Extension
-1. Open Chrome and go to chrome://extensions/
+   ```
+   uvicorn main:app --reload
+   ```
 
-2. Enable Developer Mode (top right).
+---
 
-3. Click Load Unpacked and select the extension folder.
+## Usage
 
-4. You’ll see the ScanVerify icon in your Chrome toolbar.
+* Visit any news article
+* Click the Chrome extension icon
+* Press "Analyze" to check credibility
+* View results in the popup (prediction and reliability score)
+* Optionally, press "Report" to flag the page
 
-## Test It Live
-Try testing with:
+---
 
-Real article: BBC News
-Fake article: NewsPunch, The People's Voice
+## Dependencies
 
-Click the extension, analyze the page, and see the result!
+### requirements.txt
 
-## Report View
-Click the gear icon in the popup to view previously reported pages. Stored using Chrome's local storage.
+```
+fastapi
+uvicorn
+pydantic
+tldextract
+python-whois
+nltk
+textblob
+scikit-learn
+joblib
+```
 
+To install all required packages:
 
+```
+pip install -r requirements.txt
+```
+
+---
+
+## Expected Outcomes
+
+* Improved user awareness of credible and misleading information sources.
+* A tool for early detection of misinformation in browsing sessions.
+* An interface for easily reporting and reviewing suspicious news content.
 
