@@ -114,3 +114,5 @@ pip install -r requirements.txt
 * A tool for early detection of misinformation in browsing sessions.
 * An interface for easily reporting and reviewing suspicious news content.
 
+## Checking the reported Urls 
+By clicking the gear icon, you to can check the urls that you reported to the google.
